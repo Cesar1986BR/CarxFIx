@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Conserto.Models.Pecas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<br>
+
+<p>
+    @Html.ActionLink("Adicionar peça", "Criar", null, new { @class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @if (!string.IsNullOrEmpty(item.Photo))
+            {
+                <img src="@Url.Content(item.Photo)" alt="Image" style="width:150px;height:150px;max-width: 100%; height: auto;" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Informação", "Detalhes", new { id=item.Id }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function (event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show')) {
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                } else {
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,74 @@
+﻿@model Conserto.Models.VM.PecaVM
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<div class="container detalhes" >
+    <div class="col-md-8">
+    
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pecas.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pecas.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Pecas.Valor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pecas.Valor)
+            </dd>
+
+        </dl>
+
+    </div>
+
+
+    <div class="col-lg-4 foto">
+
+        @if (!string.IsNullOrEmpty(Model.Pecas.Photo))
+        {
+            <img src="@Url.Content(Model.Pecas.Photo)" alt="Image" style="width:340px;height:340px;" />
+        }
+    </div>
+</div>
+
+
+<p style="clear:both">
+    @Html.ActionLink("Edit", "Editar", new { id = Model.Pecas.Id }, new { @class= "btn btn-info" }) |
+    @Html.ActionLink("Voltar", "Index",null, new { @class = "btn btn-info" })
+</p>
+
+
+
+
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function (event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show')) {
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                } else {
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+
+    </script>
+}

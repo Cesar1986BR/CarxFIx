@@ -1,0 +1,98 @@
+﻿@model Conserto.Models.VM.PecaVM
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Peça</h2>
+
+@if (TempData["MG"] != null)
+{
+    <div class="alert alert-success msg_altera">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        @TempData["MG"]
+    </div>
+
+}
+
+@using (Html.BeginForm("Editar", "Peca", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+      
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Pecas.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pecas.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pecas.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Pecas.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="">Foto Atual</label>
+            <div class="col-md-10">
+                <span class="col-lg-4">
+                   
+                    @if (!string.IsNullOrEmpty(Model.Pecas.Photo))
+                    {
+                        <img src="@Url.Content(Model.Pecas.Photo)" alt="Image" style="width:340px;height:340px;max-width: 100%; height: auto;" />
+                    }
+                </span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="">Mudar Foto</label>
+            <div class="col-md-10">
+                <span class="btn btn-default btn-file">
+                    @Html.TextBoxFor(model => model.Fotos, new { type = "file" })
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pecas.Valor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pecas.Valor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Pecas.Valor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index",null, new { @class="btn btn-info"})
+</div>
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function (event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show')) {
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                } else {
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+
+    </script>
+}

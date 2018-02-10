@@ -1,0 +1,97 @@
+﻿@model Conserto.Models.VM.UsuarioVM
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Você tem certeza que deseja excluir esse Usuário?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal col-lg-4">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Endereco)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Mecanico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Mecanico)
+        </dd>
+
+    </dl>
+
+    <div class="col-lg-4 foto">
+
+        @if (!string.IsNullOrEmpty(Model.Usuario.Photo))
+        {
+            <img src="@Url.Content(Model.Usuario.Photo)" alt="Image" style="width:340px;height:340px;max-width: 100%; height: auto;" />
+        }
+    </div>
+
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style=" clear:both">
+            <input type="button" value="Excluir" class="btn btn-danger" data-toggle="modal" data-target="#myModal" /> |
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn - btn-info" })
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Atencão</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Uma vez excluido, será excluido permanentemente.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Excluir" class="btn btn-danger" />
+                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn - btn-info" })
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Conserto.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<br>
+
+<p>
+    @Html.ActionLink("Adicionar usuário", "Criar", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mecanico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @if (!string.IsNullOrEmpty(item.Photo))
+            {
+                <img src=" @Url.Content(item.Photo)" style="width:150px; height:150px; "/>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mecanico)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.UserId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Informações", "Detalhes", new { id=item.UserId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.UserId }, new { @class = "btn btn-danger" })
+        </td>
+
+    </tr>
+}
+
+</table>

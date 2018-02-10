@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Conserto.Models.Consertos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ordens de serviço</h2>
+
+<p>
+    @Html.ActionLink("Criar nova tarefa", "Criar", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mecânico
+        </th>
+        <th>
+            Cliente
+        </th>
+
+        <th>
+           Peças Ultilizadas
+        </th>
+        <th>
+            Data Criação
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pessoa.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsertoDetalhes.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCriacao)
+            </td>
+
+            <td>
+                @Html.ActionLink("Atualizar tarefa", "Editar", new { id = item.ConsertoId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Informações", "Detalhes", new { id = item.ConsertoId }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.ConsertoId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function (event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show')) {
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                } else {
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/Site.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    @*<div class="navbar navbar-brand navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="logomarca">
+                    <a href="/Inicio/index" class="navbar-brand">
+                        <img src="~/Content/banner/logo.png" style="width:150px;height:80px;" />
+                        <img src="~/Content/banner/carrinho.ico" style="width:150px;height:150px;" />
+                    </a>
+                </div>
+          
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="navbar-right">
+
+                     <a href="/Peca/index" class="navbar-brand">Peças</a>
+                     <a href="/Usuario/index" class="navbar-brand">Usuario</a>
+                     <a href="/Consertos/index" class="navbar-brand">Consertos</a>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+
+
+ <div class="navbar-more-overlay"></div>
+    <nav class="navbar navbar-default navbar-fixed-top animate">
+        <div class="container navbar-more visible-xs">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Submit</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Photos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Reservations
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="navbar-header hidden-xs">
+                <div class="logomarca">
+                    <a href="/Inicio/index" class="navbar-brand">
+                        <img src="~/Content/banner/logo.png" style="width:150px;height:80px;" />
+                        <img src="~/Content/banner/carrinho.ico" style="width:150px;height:150px;" />
+                    </a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav navbar-right mobile-bar">
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-home"></span>
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-info"></span>
+                        <span class="hidden-xs">Sobre</span>
+                        <span class="visible-xs">About</span>
+                    </a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="/Peca/index">
+                        <span class="menu-icon fa fa-picture-o"></span>
+                        Peças
+                    </a>
+                </li>
+                <li>
+                    <a  href="/Usuario/index">
+                        <span class="menu-icon fa fa-ship"></span>
+                        Usuários
+                    </a>
+                </li>
+                <li class="hidden-xs">
+                    <a  href="/Consertos/index">
+                        <span class="menu-icon fa fa-bell-o"></span>
+                        Consertos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu-icon fa fa-phone"></span>
+                        <span class="hidden-xs">Contato</span>
+                        <span class="visible-xs">Contact</span>
+                    </a>
+                </li>
+                <li class="visible-xs">
+                    <a href="#navbar-more-show">
+                        <span class="menu-icon fa fa-bars"></span>
+                        Sbore 
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

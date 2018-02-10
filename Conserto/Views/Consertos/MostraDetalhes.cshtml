@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Conserto.Models.ConsertoDetalhes>
+
+@{
+    ViewBag.Title = "MostraDetalhes";
+}
+
+<h2>MostraDetalhes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Consertod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PecaId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Consertod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PecaId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.consertoDetalhesId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.consertoDetalhesId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.consertoDetalhesId })
+        </td>
+    </tr>
+}
+
+</table>
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            $('a[href="#navbar-more-show"], .navbar-more-overlay').on('click', function (event) {
+                event.preventDefault();
+                $('body').toggleClass('navbar-more-show');
+                if ($('body').hasClass('navbar-more-show')) {
+                    $('a[href="#navbar-more-show"]').closest('li').addClass('active');
+                } else {
+                    $('a[href="#navbar-more-show"]').closest('li').removeClass('active');
+                }
+                return false;
+            });
+        });
+
+    </script>
+}

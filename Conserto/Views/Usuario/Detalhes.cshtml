@@ -1,0 +1,68 @@
+﻿@model Conserto.Models.VM.UsuarioVM
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal col-lg-4">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Endereco)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Mecanico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Mecanico)
+        </dd>
+
+    </dl>
+
+    <div class="col-lg-4 foto">
+
+        @if (!string.IsNullOrEmpty(Model.Usuario.Photo))
+        {
+            <img src="@Url.Content(Model.Usuario.Photo)" alt="Image" style="width:240px;height:240px;border-radius: 50%;" />
+        }
+    </div>
+
+</div>
+<p style="clear:both">
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Usuario.UserId }, new { @class="btn btn-info"}) |
+    @Html.ActionLink("Voltar", "Index",null, new { @class = "btn btn-info" })
+</p>
